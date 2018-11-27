@@ -3,6 +3,13 @@ import numpy as np
 from scipy import sparse
 
 train = pd.read_csv('dataset/train.csv')
-sparse = train.pivot(index='user_id', columns='item_id', values='rating')
-sparse.to_csv('train_sparse.csv')
 
+train_subset = train[:5400]
+
+#sparse = train.pivot(index='user_id', columns='item_id', values='rating')
+#sparse.to_csv('dataset/train_sparse.csv')
+
+sparse = train_subset.pivot(index='user_id', columns='item_id', values='rating')
+sparse.to_csv('dataset/train_subset_sparse.csv')
+
+#print(sparse)
