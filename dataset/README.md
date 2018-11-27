@@ -19,17 +19,17 @@ In addition, the data set includes seven survey questions with responses for eac
 This data set in intended for use in collaborative filtering and recommender systems research. The rating data has been divided into a training set, and a test set. The test set consists of the 54,000 ratings for randomly selected songs, while the test set consists of approximately 300,000 user-supplied ratings. Note that there is no test data for the the 10,000 non-survey participants, which are included for training purposes only. 
 
 This dataset consists of four text files:
-1. ydata-ymusic-rating-study-v1_0-train.txt
-2. ydata-ymusic-rating-study-v1_0-test.txt
-3. ydata-ymusic-rating-study-v1_0-survey-questions.txt
-4. ydata-ymusic-rating-study-v1_0-survey-answers.txt
+1. train.txt
+2. test.txt
+3. survey_questions.txt
+4. survey_answers.txt
 
 
 The content of the files are as follows:
 
 =====================================================================
 
-1. "ydata-ymusic-rating-study-v1_0-train.txt": The training data file contains data for 15,400 users and 1000 songs. There is a total of approximately 300,000 ratings. Each user has at least 10 observed ratings. Each user has at most one observation for each song. The users are ordered by
+1. "train.txt": The training data file contains data for 15,400 users and 1000 songs. There is a total of approximately 300,000 ratings. Each user has at least 10 observed ratings. Each user has at most one observation for each song. The users are ordered by
 randomly assigned user id. The observations for each user are listed sequentially, and are ordered by randomly assigned song id. The first 5400 users are survey participants while the last 10,000 are the non-survey participants. The ratings values are on a scale from 1 to 5. The format of each row of each file is "user id<TAB>song id<TAB>rating".
 
 Snippet:
@@ -41,7 +41,7 @@ Snippet:
 
 ====================================================================
 
-2. "ydata-ymusic-rating-study-v1_0-test.txt": The test data file contains data for the 5,400 survey
+2. "test.txt": The test data file contains data for the 5,400 survey
 participants and 1000 songs. There is a total of exactly 54,000 ratings. Each user has exactly 10 observed ratings. The users are ordered by randomly assigned user id. The observations for each user are listed sequentially, and are ordered by randomly assigned song id. The ratings values are on a scale from 1 to 5. The format of each row of each file is "user id<TAB>song id<TAB>rating".
 
 Snippet:
@@ -53,7 +53,7 @@ Snippet:
 
 ====================================================================
 
-3. "ydata-ymusic-rating-study-v1_0-survey-questions.txt": The seven survey questions a listed one per line. Each question is listed first, followed by the multiple choice answers. The questions and answers are separated by <TAB>'s.
+3. "survey_questions.txt": The seven survey questions a listed one per line. Each question is listed first, followed by the multiple choice answers. The questions and answers are separated by <TAB>'s.
 
 Snippet:
 If I hear a song I hate I choose to rate it:   never   very infrequently    infrequently   often   very often 
@@ -62,7 +62,7 @@ If I hear a song I don't like I choose to rate it:   never   very infrequently  
 
 ====================================================================
 
-4. "ydata-ymusic-rating-study-v1_0-survey-answers.txt": This file contains the answers to the seven multiple choice survey questions for each of the 5400 survey participants. Line "n" of the file contains the answers to all of the multiple choice questions for user "n". The answers are separated by <TAB>'s. The answer for each question has been encoded using integers from 1 to the number of answers for that question. A value of "1" for the response to a given question corresponds the first answer listed in the file "ydata-ymusic-rating-study-v1_0-survey-questions.txt" for that question. A value of "2" corresponds to the second answer listed, etc.
+4. "survey_answers.txt": This file contains the answers to the seven multiple choice survey questions for each of the 5400 survey participants. Line "n" of the file contains the answers to all of the multiple choice questions for user "n". The answers are separated by <TAB>'s. The answer for each question has been encoded using integers from 1 to the number of answers for that question. A value of "1" for the response to a given question corresponds the first answer listed in the file "survey-questions.txt" for that question. A value of "2" corresponds to the second answer listed, etc.
 
 
 Snippet:
