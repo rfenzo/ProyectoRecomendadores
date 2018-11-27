@@ -1,4 +1,4 @@
-user id,song id,rating
+user_id,item_id,rating
 1,49,1
 1,126,1
 1,138,1
