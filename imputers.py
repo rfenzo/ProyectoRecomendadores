@@ -3,7 +3,6 @@ import numpy as np
 from fancyimpute import KNN, NuclearNormMinimization, SoftImpute, IterativeImputer, BiScaler
 
 train = pd.read_csv('sparsed/train_subset_sparse.csv')
-test = pd.read_csv('dataset/test.csv')
 
 # X is the complete data matrix
 # train has the same values as X except a subset have been replace with NaN

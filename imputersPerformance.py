@@ -7,7 +7,7 @@ test.pop('5400')
 
 for i in ['knn','ii']:
   print(i)
-  impute = pd.read_csv(f'imputers/{i}_impute.csv', header=None, index_col=0)
+  impute = pd.read_csv(f'imputers/{i}_impute_test.csv', header=None, index_col=0)
   MAES = []
   RMSES = []
   for user in test.keys():
