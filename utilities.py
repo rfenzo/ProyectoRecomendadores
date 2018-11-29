@@ -1,9 +1,11 @@
 import json
 import pandas as pd
+import os
+import pprint
 
 def dict2file(dictionary, filename):
   with open(filename, 'w') as f:
-    json.dump(dictionary, f)
+    json.dump(dictionary, f, indent = 2)
 
 def file2dict(filename):
   with open(filename, 'r') as f:
@@ -30,12 +32,19 @@ def RMSE(list1,list2):
     suma += (a-b)**2
   return (suma/len(list1))**0.5
 
-def sparse2Original():
-  sparse = pd.read_csv('imputers/ii_impute.csv', header=None, index_col=0)
-
+def sparse2long(filepath, destination):
+  sparse = pd.read_csv(filepath, header=None, index_col=0)
   columns = [0,'level_0','rating']
   renameColumns = {0:'user_id','level_0':'item_id'}
-  original = sparse.unstack().reset_index(name = 'rating')[columns]
-  original = original.rename(index=str, columns=renameColumns)
-  original = original.sort_values(by=['user_id','item_id'])
-  original.to_csv('imputers/ii_impute_not_sparse.csv', index=False)
+  long = sparse.unstack().reset_index(name = 'rating')[columns]
+  long = long.rename(index=str, columns=renameColumns)
+  long = long.sort_values(by=['user_id','item_id'])
+  long.to_csv(destination, index=False)
+
+def shutdown():
+  os.system("shutdown now -h")
+
+# sparse2long('imputed/knn2.csv', 'longImputed/knn2.csv')
+# sparse2long('imputed/knn5.csv', 'longImputed/knn5.csv')
+# sparse2long('imputed/knn10.csv', 'longImputed/knn10.csv')
+# sparse2long('imputed/knn20.csv', 'longImputed/knn20csv')

@@ -1,13 +1,15 @@
 import pandas as pd
-import numpy as np
-from scipy import sparse
+from utilities import test2dict, dict2file
 
-train = pd.read_csv('dataset/train.csv')
 
-train_subset = train.loc[train['user_id'] <= 5400]
+training = pd.read_csv('dataset/training.csv')
+test = pd.read_csv('dataset/test.csv')
 
-sparse = train.pivot(index='user_id', columns='item_id', values='rating')
-sparse.to_csv('sparsed/train_sparse.csv')
+# to create test.json
+# dict2file(test2dict(test), 'test.json')
 
-sparse_subset = train_subset.pivot(index='user_id', columns='item_id', values='rating')
-sparse_subset.to_csv('sparsed/train_subset_sparse.csv')
+# to create train.json
+# dict2file(test2dict(training), 'train.json')
+
+sparse = training.pivot(index='user_id', columns='item_id', values='rating')
+sparse.to_csv('sparsed/training_sparse.csv')
